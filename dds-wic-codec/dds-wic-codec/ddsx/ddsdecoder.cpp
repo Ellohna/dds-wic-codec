@@ -9,6 +9,8 @@ const GUID CLSID_DDS_Container =
 const GUID CLSID_DDS_Decoder = 
 { 0xEBF7CAF8, 0x290F, 0x459D, { 0x99, 0x7A, 0x71, 0x31, 0xAE, 0x4E, 0xCB, 0x1B} };
 
+#define WICX_RELEASE(X) if ( NULL != X ) { X->Release(); X = NULL; }
+
 namespace dds
 {
 	const unsigned int DDSD_CAPS = 0x00000001;
@@ -234,7 +236,11 @@ namespace ddsx
 					cc->r = (unsigned char)PixelConvert( (c & ddsHeader.ddpfPixelFormat.dwRBitMask) >> rshift, rsize, 8 );
 					cc->g = (unsigned char)PixelConvert( (c & ddsHeader.ddpfPixelFormat.dwGBitMask) >> gshift, gsize, 8 );
 					cc->b = (unsigned char)PixelConvert( (c & ddsHeader.ddpfPixelFormat.dwBBitMask) >> bshift, bsize, 8 );
-					cc->a = (unsigned char)PixelConvert( (c & ddsHeader.ddpfPixelFormat.dwRGBAlphaBitMask) >> ashift, asize, 8 );
+
+					if ( ddsHeader.ddpfPixelFormat.dwRGBAlphaBitMask )
+						cc->a = (unsigned char)PixelConvert( (c & ddsHeader.ddpfPixelFormat.dwRGBAlphaBitMask) >> ashift, asize, 8 );
+					else
+						cc->a = 255;
 
 					inDataP += byteCount; outDataP += 4;
 				}
@@ -294,7 +300,7 @@ namespace ddsx
 		HRESULT result = S_OK;
 
 		*pCapability =
-			WICBitmapDecoderCapabilityCanDecodeAllImages;
+			WICBitmapDecoderCapabilityCanDecodeSomeImages;
 
 		return result;
 	}
@@ -311,6 +317,8 @@ namespace ddsx
 		{
 			dds::DDS_HEADER ddsHeader;
 			result = ReadFromIStream( pIStream, ddsHeader ); // read header
+
+			if ( SUCCEEDED( result )) result = VerifyFactory();
 
 			if ( SUCCEEDED( result ))
 			{

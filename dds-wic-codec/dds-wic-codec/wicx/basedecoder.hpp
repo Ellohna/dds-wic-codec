@@ -9,7 +9,7 @@ namespace wicx
 	{
 	public:
 		BaseFrameDecode( IWICImagingFactory *pIFactory, UINT num );
-		~BaseFrameDecode();
+		virtual ~BaseFrameDecode();
 
 		// IUnknown interface
 
@@ -74,7 +74,7 @@ namespace wicx
 	{
 	public:
 		BaseDecoder( GUID Me, GUID Container );
-		~BaseDecoder();
+		virtual ~BaseDecoder();
 
 		// IUnknown interface
 

@@ -94,6 +94,81 @@
 			/>
 		</Configuration>
 		<Configuration
+			Name="Debug|x64"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)"
+			IntermediateDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)\Temp"
+			ConfigurationType="2"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="squish"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;DDSCODEC_EXPORTS;SQUISH_USE_SSE=2"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="windowscodecs.lib"
+				LinkIncremental="2"
+				ModuleDefinitionFile="dds-wic-codec.def"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				TargetMachine="17"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)"
 			IntermediateDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)\Temp"
@@ -178,81 +253,6 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Debug|x64"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)"
-			IntermediateDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)\Temp"
-			ConfigurationType="2"
-			CharacterSet="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="0"
-				AdditionalIncludeDirectories="squish"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;DDSCODEC_EXPORTS;SQUISH_USE_SSE=2"
-				MinimalRebuild="true"
-				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
-				UsePrecompiledHeader="0"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="windowscodecs.lib"
-				LinkIncremental="2"
-				ModuleDefinitionFile="dds-wic-codec.def"
-				GenerateDebugInformation="true"
-				SubSystem="2"
-				TargetMachine="17"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
 			Name="Release|x64"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)"
 			IntermediateDirectory="$(SolutionDir)$(ConfigurationName)-$(PlatformName)\Temp"
@@ -284,12 +284,10 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="true"
 				AdditionalIncludeDirectories="squish"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;SQUISH_USE_SSE=2"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL"
 				RuntimeLibrary="0"
 				BufferSecurityCheck="false"
 				EnableFunctionLevelLinking="true"
-				EnableEnhancedInstructionSet="2"
-				FloatingPointModel="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="3"
@@ -478,6 +476,74 @@
 			</File>
 			<File
 				RelativePath=".\squish\squish.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="pvrlib"
+			>
+			<File
+				RelativePath=".\pvrlib\PVRTDecompress.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTDecompress.h"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTFixedPoint.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTFixedPoint.h"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTGlobal.h"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTMathTable.h"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTMatrix.h"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTMatrixF.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTMatrixX.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTMisc.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTMisc.h"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTTexture.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrlib\PVRTTexture.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="pvrx"
+			>
+			<File
+				RelativePath=".\pvrx\pvrdecoder.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\pvrx\pvrdecoder.hpp"
 				>
 			</File>
 		</Filter>

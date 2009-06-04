@@ -93,7 +93,7 @@ namespace wicx
 		{
 			// return the number of color contexts
 			if ( pcActualCount != NULL )
-				*pcActualCount = m_colorContexts.size();        
+				*pcActualCount = (UINT) m_colorContexts.size();
 			else
 				result = E_INVALIDARG;
 		}
@@ -183,10 +183,12 @@ namespace wicx
 	BaseDecoder::BaseDecoder( GUID Me, GUID Container )
 		: m_factory(NULL), m_palette(NULL), m_thumbnail(NULL), m_preview(NULL), m_CLSID_This(Me), m_CLSID_Container(Container)
 	{
+//		MessageBox( NULL, L"Decoder()", L"dds_wic_codec", MB_OK);
 	}
 
 	BaseDecoder::~BaseDecoder()
 	{
+//		MessageBox( NULL, L"~Decoder()", L"dds_wic_codec", MB_OK);
 		ReleaseMembers( true );
 	}
 
@@ -346,7 +348,7 @@ namespace wicx
 		{
 			// return the number of color contexts
 			if ( pcActualCount != NULL )
-				*pcActualCount = m_colorContexts.size();        
+				*pcActualCount = (UINT) m_colorContexts.size();        
 			else
 				result = E_INVALIDARG;
 		}
@@ -386,7 +388,7 @@ namespace wicx
 
 		if ( NULL == pCount ) result = E_INVALIDARG;
 
-		if ( SUCCEEDED( result )) *pCount = m_frames.size();
+		if ( SUCCEEDED( result )) *pCount = (UINT) m_frames.size();
 
 		return result;
 	}
